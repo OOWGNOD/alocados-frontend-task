@@ -1,18 +1,23 @@
 import React from "react";
 import {
+    ChageListBoxRightArrow,
+    ChageListBoxRightBox,
+    ChageListInfoBox,
+    ChageListInfoDate,
+    ChageListInfoInnerBox,
+    ChageListInfoInnerLogo,
+    ChageListInfoInnerText,
     ChangeBtn,
+    ChangeIconBox,
     ChangeInput,
     ChangeInputBox,
     ChangeInputLabel,
     ContentsBodyContainer,
     ContentsChangeBox,
     ContentsContainer,
-    ContentsFromBox,
     ContentsHeaderText,
     ContentsInnerContainer,
     ContentsSideContainer,
-    NewerChangeInfoBox,
-    NewerChangeInfoDate,
     StrongText,
     StrongTextBox,
     TextSideLogo,
@@ -25,6 +30,11 @@ import {
 } from "../styles/contents.style";
 import SolanaLogo from "../assets/solana.svg";
 import changeIcon from "../assets/change_icon.svg";
+import RightArrowIcon from "../assets/right_arrow.svg";
+import NonCircleETH from "../assets/nonCircle_ETH.svg";
+import NonCircleSOL from "../assets/nonCircle_Sol.svg";
+import NonCircleBNB from "../assets/nonCircle_BnB.svg";
+
 const ChangeTokenContents = () => {
     return (
         <ContentsContainer>
@@ -60,9 +70,9 @@ const ChangeTokenContents = () => {
                             </TokenSelector>
                         </TokenSelectorBox>
                     </ContentsChangeBox>
-                    <div>
+                    <ChangeIconBox>
                         <img src={changeIcon} alt="change icon" />
-                    </div>
+                    </ChangeIconBox>
                     <ContentsChangeBox>
                         <ChangeInputBox>
                             <ChangeInputLabel>전환 수량 (TO)</ChangeInputLabel>
@@ -77,24 +87,37 @@ const ChangeTokenContents = () => {
                         </TokenSelectorBox>
                     </ContentsChangeBox>
                     <ChangeBtn>환전</ChangeBtn>
-                    <NewerChangeInfoBox>
-                        <div>
-                            <NewerChangeInfoDate>
+                    <ChageListInfoBox>
+                        <ChageListInfoInnerBox>
+                            <ChageListInfoDate>
                                 2023-03-12,AM 10:50
-                            </NewerChangeInfoDate>
-                        </div>
-                        <div>
-                            <div>
-                                <img src={""} alt="From token logo" />
-                                <p>1,302.44 ETH</p>
-                            </div>
-                            <img src={""} alt="right arrow" />
-                            <div>
-                                <img src={""} alt="To token logo" />
-                                <p>1,302.44 ETH</p>
-                            </div>
-                        </div>
-                    </NewerChangeInfoBox>
+                            </ChageListInfoDate>
+                        </ChageListInfoInnerBox>
+                        <ChageListBoxRightBox>
+                            <ChageListInfoInnerBox>
+                                <ChageListInfoInnerLogo
+                                    src={NonCircleETH}
+                                    alt="From token logo"
+                                />
+                                <ChageListInfoInnerText>
+                                    1,302.44 ETH
+                                </ChageListInfoInnerText>
+                            </ChageListInfoInnerBox>
+                            <ChageListBoxRightArrow
+                                src={RightArrowIcon}
+                                alt="right arrow"
+                            />
+                            <ChageListInfoInnerBox>
+                                <ChageListInfoInnerLogo
+                                    src={NonCircleSOL}
+                                    alt="To token logo"
+                                />
+                                <ChageListInfoInnerText>
+                                    1,302.44 ETH
+                                </ChageListInfoInnerText>
+                            </ChageListInfoInnerBox>
+                        </ChageListBoxRightBox>
+                    </ChageListInfoBox>
                 </ContentsInnerContainer>
             </ContentsBodyContainer>
         </ContentsContainer>

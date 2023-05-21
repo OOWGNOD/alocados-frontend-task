@@ -151,9 +151,8 @@ export const TokenSelectorBox = styled.div`
     align-items: center;
     width: 147px;
     height: 56px;
-    padding: 10px;
     gap: 4px;
-    border-radius: 12px;
+    margin-left: 16px;
     background: url("../assets/underarrow.png") no-repeat 97% 50%/15px auto;
 `;
 
@@ -173,12 +172,21 @@ export const TokenSelector = styled.select`
     }
     width: 100%;
     height: 100%;
+    padding: 10px;
+    border-radius: 12px;
     background: #fafbfc;
     border: none;
     -o-appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+`;
+
+export const ChangeIconBox = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
 `;
 
 export const ChangeBtn = styled.button`
@@ -202,11 +210,12 @@ export const ChangeBtn = styled.button`
     box-shadow: none;
 `;
 
-export const NewerChangeInfoBox = styled.div`
+export const ChageListInfoBox = styled.div`
     position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     padding: 8px 16px;
     gap: 32px;
     width: 634px;
@@ -215,17 +224,43 @@ export const NewerChangeInfoBox = styled.div`
     border-radius: 12px;
 `;
 
-export const NewerChangeInfoDate = styled.p`
+export const ChageListInfoDate = styled.p`
     font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 178%;
-    /* identical to box height, or 25px */
-
     font-feature-settings: "pnum" on, "lnum" on, "cv03" on, "cv04" on, "cv09" on;
-
-    /* Light/Shade/900 */
-
     color: #2a3249;
+`;
+
+export const ChageListBoxRightBox = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
+
+export const ChageListBoxRightArrow = styled.img`
+    margin: 33.33px;
+`;
+
+export const ChageListInfoInnerBox = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
+
+export const ChageListInfoInnerLogo = styled.img`
+    margin-right: 12.66px;
+`;
+
+export const ChageListInfoInnerText = styled.p`
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 178%;
+    text-align: right;
+    font-feature-settings: "pnum" on, "lnum" on, "cv03" on, "cv04" on, "cv09" on;
+    color: #404e71;
 `;

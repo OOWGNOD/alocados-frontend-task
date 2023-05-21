@@ -11,6 +11,8 @@ import {
     ContentsHeaderText,
     ContentsInnerContainer,
     ContentsSideContainer,
+    NewerChangeInfoBox,
+    NewerChangeInfoDate,
     StrongText,
     StrongTextBox,
     TextSideLogo,
@@ -75,6 +77,24 @@ const ChangeTokenContents = () => {
                         </TokenSelectorBox>
                     </ContentsChangeBox>
                     <ChangeBtn>환전</ChangeBtn>
+                    <NewerChangeInfoBox>
+                        <div>
+                            <NewerChangeInfoDate>
+                                2023-03-12,AM 10:50
+                            </NewerChangeInfoDate>
+                        </div>
+                        <div>
+                            <div>
+                                <img src={""} alt="From token logo" />
+                                <p>1,302.44 ETH</p>
+                            </div>
+                            <img src={""} alt="right arrow" />
+                            <div>
+                                <img src={""} alt="To token logo" />
+                                <p>1,302.44 ETH</p>
+                            </div>
+                        </div>
+                    </NewerChangeInfoBox>
                 </ContentsInnerContainer>
             </ContentsBodyContainer>
         </ContentsContainer>

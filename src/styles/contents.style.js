@@ -39,6 +39,7 @@ export const ContentsInnerContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
     margin-left: 17.5px;
 `;
 export const ContentsChangeBox = styled.div`
@@ -199,4 +200,32 @@ export const ChangeBtn = styled.button`
     color: #ffffff;
     border: none;
     box-shadow: none;
+`;
+
+export const NewerChangeInfoBox = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 32px;
+    width: 634px;
+    height: 48px;
+    background: #f4f5f8;
+    border-radius: 12px;
+`;
+
+export const NewerChangeInfoDate = styled.p`
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 178%;
+    /* identical to box height, or 25px */
+
+    font-feature-settings: "pnum" on, "lnum" on, "cv03" on, "cv04" on, "cv09" on;
+
+    /* Light/Shade/900 */
+
+    color: #2a3249;
 `;

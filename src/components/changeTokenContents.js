@@ -90,7 +90,14 @@ const ChangeTokenContents = () => {
 
     const _FrominputChange = (e) => {
         const amount = e.target.value;
-        if (amount.value === ".") return false;
+        if (
+            Number(amount) > Number(changeToken[selectedFromToken?.tokenSymbol])
+        ) {
+            setFromTokenBalance(
+                `${changeToken[selectedFromToken?.tokenSymbol]}`
+            );
+            return false;
+        }
         if (amount.length === 0) {
             setFromTokenBalance("");
         }

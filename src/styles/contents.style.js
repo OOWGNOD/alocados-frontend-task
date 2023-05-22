@@ -221,11 +221,6 @@ export const NewerChangeInfoDate = styled.p`
     font-weight: 400;
     font-size: 14px;
     line-height: 178%;
-    /* identical to box height, or 25px */
-
     font-feature-settings: "pnum" on, "lnum" on, "cv03" on, "cv04" on, "cv09" on;
-
-    /* Light/Shade/900 */
-
     color: #2a3249;
 `;

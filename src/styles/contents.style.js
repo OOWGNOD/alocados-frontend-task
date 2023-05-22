@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const CenterAlignDiv = styled.div`
+    display: flex;
+    align-items: center;
+    cursor: ${(props) => (props.pointer ? "pointer" : "auto")};
+`;
+
 export const ContentsContainer = styled.div`
     position: absolute;
     top: 50%;
@@ -15,6 +21,32 @@ export const ContentsHeaderText = styled.p`
     line-height: 32px;
     font-feature-settings: "pnum" on, "lnum" on;
     color: #2a3249;
+    margin-bottom: 24px;
+`;
+
+export const ChangeStateAlarmBox = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+
+    margin-bottom: 14px;
+    gap: 8px;
+    width: 960px;
+    height: 56px;
+    background: rgba(55, 86, 228, 0.12);
+    border-radius: 12px;
+`;
+export const ChangeStateAlarmText = styled.p`
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    font-feature-settings: "pnum" on, "lnum" on, "cv03" on, "cv04" on, "cv09" on;
+    color: #3756e4;
+    margin-left: 9.67px;
 `;
 
 export const ContentsBodyContainer = styled.div`
@@ -56,7 +88,7 @@ export const StrongTextBox = styled.div`
 `;
 
 export const StrongText = styled.strong`
-    font-family: "Poppins600";
+    font-family: "Pretendard";
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -66,11 +98,16 @@ export const StrongText = styled.strong`
 `;
 export const TokenInfo = styled.div`
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 17.65px;
 `;
 export const TokenInfoHeader = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 10px;
 `;
 
 export const TextSideLogo = styled.img`
@@ -87,7 +124,6 @@ export const TokenInfoText = styled.p`
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
-    line-height: 178%;
     font-feature-settings: "pnum" on, "lnum" on, "cv03" on, "cv04" on, "cv09" on;
     color: #4c5b7a;
 `;
@@ -97,13 +133,10 @@ export const TokenPriceInfo = styled.p`
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
-    line-height: 178%;
     display: flex;
     align-items: center;
     font-feature-settings: "pnum" on, "lnum" on, "cv03" on, "cv04" on, "cv09" on;
     color: #2a3249;
-    margin-block-end: 0;
-    margin-block-start: 0;
 `;
 
 export const ChangeInputBox = styled.div`
@@ -114,6 +147,10 @@ export const ChangeInputBox = styled.div`
     height: 56px;
     background: #fafbfc;
     border-radius: 12px;
+    border: ${(props) =>
+        props.length === 0 || props.AbledChange
+            ? "none"
+            : "1.2px solid #f7254b"};
 `;
 
 export const ChangeInputLabel = styled.label`
@@ -146,40 +183,58 @@ export const ChangeInput = styled.input`
 `;
 
 export const TokenSelectorBox = styled.div`
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 147px;
-    height: 56px;
     gap: 4px;
     margin-left: 16px;
     background: url("../assets/underarrow.png") no-repeat 97% 50%/15px auto;
 `;
 
-export const TokenSelector = styled.select`
-    &::-ms-expand {
-        display: none;
-    }
-    option {
-        font-family: "Poppins400", sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 178%;
-        font-feature-settings: "pnum" on, "lnum" on, "cv03" on, "cv04" on,
-            "cv09" on;
-        color: #2a3249;
-    }
-    width: 100%;
-    height: 100%;
+export const TokenSelector = styled.div`
+    width: 147px;
+    height: 56px;
+    padding: 10px;
+    border-radius: 12px;
+    background: #fafbfc;
+    font-family: "Poppins400";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 178%;
+    font-feature-settings: "pnum" on, "lnum" on, "cv03" on, "cv04" on, "cv09" on;
+    color: #2a3249;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+`;
+export const UnderArrow = styled.img`
+    width: 24px;
+    height: 24px;
+`;
+
+export const TokenSelectUl = styled.ul`
+    position: absolute;
+    max-width: 147px;
+    top: 50px;
     padding: 10px;
     border-radius: 12px;
     background: #fafbfc;
     border: none;
-    -o-appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+`;
+
+export const TokenSelectLi = styled.li`
+    width: 147px;
+    font-family: "Poppins400";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 178%;
+    font-feature-settings: "pnum" on, "lnum" on, "cv03" on, "cv04" on, "cv09" on;
+    color: #2a3249;
+    list-style: none;
 `;
 
 export const ChangeIconBox = styled.div`
@@ -197,7 +252,7 @@ export const ChangeBtn = styled.button`
     padding: 10px 16px;
     width: 635px;
     height: 56px;
-    background: #5d28f2;
+    background: ${(props) => (props.AbledChange ? "#5d28f2" : "#E0E2E8")};
     border-radius: 12px;
     font-family: "Pretendard";
     font-style: normal;
@@ -205,7 +260,7 @@ export const ChangeBtn = styled.button`
     font-size: 15px;
     line-height: 36px;
     letter-spacing: 0.05em;
-    color: #ffffff;
+    color: ${(props) => (props.AbledChange ? "#ffffff" : "#A9B0C1")};
     border: none;
     box-shadow: none;
 `;
@@ -222,10 +277,11 @@ export const ChageListInfoBox = styled.div`
     height: 48px;
     background: #f4f5f8;
     border-radius: 12px;
+    margin-bottom: 8px;
 `;
 
 export const ChageListInfoDate = styled.p`
-    font-family: "Poppins";
+    font-family: "Poppins400";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -241,7 +297,8 @@ export const ChageListBoxRightBox = styled.div`
 `;
 
 export const ChageListBoxRightArrow = styled.img`
-    margin: 33.33px;
+    margin-left: 33.33px;
+    margin-right: 33.33px;
 `;
 
 export const ChageListInfoInnerBox = styled.div`
@@ -251,11 +308,12 @@ export const ChageListInfoInnerBox = styled.div`
 `;
 
 export const ChageListInfoInnerLogo = styled.img`
-    margin-right: 12.66px;
+    margin-right: ${(props) =>
+        props.marginRight ? props.marginRight : "12.66px"};
 `;
 
 export const ChageListInfoInnerText = styled.p`
-    font-family: "Poppins";
+    font-family: "Poppins600";
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
@@ -263,4 +321,19 @@ export const ChageListInfoInnerText = styled.p`
     text-align: right;
     font-feature-settings: "pnum" on, "lnum" on, "cv03" on, "cv04" on, "cv09" on;
     color: #404e71;
+`;
+
+export const HistoryChangeTimeText = styled.p`
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 178%;
+    font-feature-settings: "pnum" on, "lnum" on, "cv03" on, "cv04" on, "cv09" on;
+    color: #2a3249;
+    margin-right: 4.33px;
+`;
+
+export const HistoryTimeArrow = styled.img`
+    transform: ${(props) => (props.sort ? "rotate(0deg)" : "rotate(180deg)")};
 `;

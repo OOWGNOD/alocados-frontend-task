@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import AlocadosLogo from "../assets/alocados.svg";
 import {
-    ChangeMoneyBox,
     HeaderBox,
     HeaderRouterBox,
     HeaderRouterText,
     Logoimg,
 } from "../styles/header.style";
 import { useLocation, useNavigate } from "react-router-dom";
-import { HeaderRouterBtn } from "../recoil/recoils";
-import { useRecoilState } from "recoil";
 
 export default function Header() {
     const movePage = useNavigate();
